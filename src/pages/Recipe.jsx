@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import styled from "styled-components"
 import { useParams } from 'react-router-dom'
 import BackButton from '../components/BackButton';
-import { MdRestaurantMenu, MdShoppingBasket, MdTimer, MdPeople, MdLocalFireDepartment } from 'react-icons/md'
 
 function Recipe() {
     const [details, setDetails] = useState({})
@@ -82,26 +81,26 @@ function Recipe() {
                             className={activeTab === 'instructions' ? 'active' : ''} 
                             onClick={() => setActiveTab('instructions')}
                         >
-                            <MdRestaurantMenu /> Instructions
+                            Instructions
                         </Button>
                         <Button 
                             className={activeTab === 'ingredients' ? 'active' : ''}
                             onClick={() => setActiveTab('ingredients')}
                         >
-                            <MdShoppingBasket /> Ingredients
+                            Ingredients
                         </Button>
                     </ButtonWrapper>
                     {activeTab === 'instructions' && (
                         <div>
                             <RecipeMetadata>
                                 <MetadataItem>
-                                    <span><MdPeople size={20}/> Servings:</span> {details.servings || 'N/A'}
+                                    <span>Servings:</span> {details.servings || 'N/A'}
                                 </MetadataItem>
                                 <MetadataItem>
-                                    <span><MdLocalFireDepartment size={20}/> Calories:</span> {details.calories || getRandomCalories()} per serving
+                                    <span>Calories:</span> {details.calories || getRandomCalories()} per serving
                                 </MetadataItem>
                                 <MetadataItem>
-                                    <span><MdTimer size={20}/> Ready in:</span> {details.readyInMinutes || 'N/A'} minutes
+                                    <span>Ready in:</span> {details.readyInMinutes || 'N/A'} minutes
                                 </MetadataItem>
                             </RecipeMetadata>
                             <Instructions>
@@ -316,6 +315,10 @@ const MetadataItem = styled.div`
     span {
         font-weight: 600;
         color: #666;
+    }
+
+    @media (min-width: 768px) {
+        font-size: 1.1rem;
     }
 `
 
